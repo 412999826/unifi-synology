@@ -16,7 +16,7 @@ docker pull jacobalberty/unifi
 sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
 ```
 
-* Unifi Controller的安装需要至少如下三个端口：8080/tcp - 设备控制；8443/tcp - Web 界面 + API；3478/udp - STUN 服务
+* Unifi Controller需要至少映射如下三个端口才可正常工作：8080/tcp - 设备控制；8443/tcp - Web 界面 + API；3478/udp - STUN 服务
 
 * 可前往[UniFi - Ports Used](https://help.ubnt.com/hc/en-us/articles/218506997)查看更多端口使用信息，并通过`-p ...`命令添加需要的端口
 
