@@ -35,7 +35,7 @@ sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/v
 docker stop unifi
 ```
 
-2. 修改`system.properties`，文件在UniFi Controller配置文件目录data文件夹下
+2. 修改`system.properties`，文件在UniFi Controller配置文件目录的data文件夹下
 * 如8080端口冲突，则将文件中`unifi.http.port=8080` 改为 `unifi.http.port=808`，同时去掉前面的`#`注释
 
 3. 重新启动容器
