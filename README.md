@@ -34,28 +34,36 @@ Unifi Controller的安装需要至少如下三个端口：
 容器成功创建后，需修改UniFi Controller配置文件中对应的端口设置。
 
 1. 停止容器
+
 `docker stop unifi`
 
-2.修改`system.properties`，文件在UniFi Controller配置文件目录data文件下
+2. 修改`system.properties`，文件在UniFi Controller配置文件目录data文件下
 `unifi.http.port=8080` 改为 `unifi.http.port=808`，同时去掉前面的`#`注释
 
-3.重新启动容器
+3. 重新启动容器
+4. 
 `docker start unifi`
+
 
 ## 更新容器
 停止容器
+
 `docker stop unifi`
 
 删除容器
+
 `docker rm unifi`
 
 删除所有未被挂载的卷（可选）
+
 `docker volume prune -f`
 
 删除镜像
+
 `docker rmi jacobalberty/unifi`
 
 创建容器并启动
+
 ```bash
 sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
 ```
