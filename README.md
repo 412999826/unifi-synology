@@ -27,6 +27,7 @@ sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/v
 
 ## 修改端口（可选）
 容器创建时如遇到端口冲突，可将冲突端口更修改为未使用端口，但是需要保持容器内外端口一致
+
 如8080端口冲突，则可将`-p 8080:8080`改为`-p 808:808`后，重新创建容器
 
 容器成功创建后，需修改UniFi Controller配置文件中对应的端口设置。
@@ -43,12 +44,16 @@ sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/v
 ## 更新容器
 停止容器
 `docker stop unifi`
+
 删除容器
 `docker rm unifi`
+
 删除所有未被挂载的卷（可选）
 `docker volume prune -f`
+
 删除镜像
 `docker rmi jacobalberty/unifi`
+
 创建容器并启动
 ```bash
 sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
