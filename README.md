@@ -46,23 +46,23 @@ docker start unifi
 
 ## 更新容器
 依次执行以下指令
-* 停止容器
+1. 停止容器
 ```bash
 docker stop unifi
 ```
-* 删除容器
+2. 删除容器
 ```bash
-docker rm unifi`
+docker rm unifi
 ```
-* 删除所有未被挂载的卷（可选）
+3. 删除所有未被挂载的卷（可选）
 ```bash
 docker volume prune -f
 ```
-* 删除镜像
+4. 删除镜像
 ```bash
 docker rmi jacobalberty/unifi
 ```
-* 创建容器并启动
+5. 创建容器并启动
 ```bash
 sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
 ```
