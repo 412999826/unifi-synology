@@ -10,7 +10,11 @@
 docker pull jacobalberty/unifi
 ```
 
+
 ## 创建容器并启动
+```bash
+sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
+```
 
 Unifi Controller的安装需要至少如下三个端口：
 * 8080/tcp - 设备控制
@@ -20,9 +24,6 @@ Unifi Controller的安装需要至少如下三个端口：
 可前往[UniFi - Ports Used](https://help.ubnt.com/hc/en-us/articles/218506997)查看更多端口使用信息，并通过`-p ...`命令添加需要的端口。
 
 `/volume1/homes/unifi`为UniFi Controller配置文件目录，可根据需要进行修改
-```bash
-sudo docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
-```
 
 
 ## 修改端口（可选）
