@@ -13,7 +13,7 @@ docker pull jacobalberty/unifi
 
 ## 创建容器并启动
 ```bash
-docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
+docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080/tcp -p 8443:8443/tcp -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
 ```
 
 * Unifi Controller需要至少映射如下三个端口才可正常工作：8080/tcp - 设备控制；8443/tcp - Web 界面 + API；3478/udp - STUN 服务
@@ -64,5 +64,5 @@ docker rmi jacobalberty/unifi
 ```
 5. 创建容器并启动（此处命令需与初始创建容器命令保持一致）
 ```bash
-docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080 -p 8443:8443 -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
+docker run -d --init --restart=always --name=unifi --net=bridge --volume=/volume1/homes/unifi:unifi -p 8080:8080/tcp -p 8443:8443/tcp -p 3478:3478/udp -e TZ='Asia/Shanghai' jacobalberty/unifi
 ```
