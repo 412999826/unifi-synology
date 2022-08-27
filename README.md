@@ -16,6 +16,7 @@ Unifi Controller的安装需要至少如下三个端口：
 * 8080/tcp - 设备控制
 * 8443/tcp - Web 界面 + API
 * 3478/udp - STUN 服务
+
 可前往[UniFi - Ports Used](https://help.ubnt.com/hc/en-us/articles/218506997)查看更多端口使用信息，并通过`-p ...`命令添加需要的端口。
 
 `/volume1/homes/unifi`为UniFi Controller配置文件目录，可根据需要进行修改
